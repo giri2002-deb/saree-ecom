@@ -12,8 +12,8 @@ interface ProductGridProps {
 export default function ProductGrid({ products, selectedFabric }: ProductGridProps) {
   const { dispatch } = useCart();
 
-  const filteredProducts = selectedFabric === 'all' 
-    ? products 
+  const filteredProducts = selectedFabric === 'all'
+    ? products
     : products.filter(product => product.fabric === selectedFabric);
 
   const addToCart = (product: Saree) => {
@@ -108,7 +108,7 @@ export default function ProductGrid({ products, selectedFabric }: ProductGridPro
                     </span>
                   </div>
                 </div>
-                
+
                 <div className="flex space-x-2">
                   <Link
                     to={`/product/${product.id}`}
@@ -119,7 +119,7 @@ export default function ProductGrid({ products, selectedFabric }: ProductGridPro
                   <button
                     onClick={() => addToCart(product)}
                     disabled={!product.inStock}
-                    className="flex-1 bg-black text-white py-2 px-4 text-xs font-medium hover:bg-gray-800 transition-colors duration-200 disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center justify-center space-x-1"
+                    className="flex-1 bg-black text-white py-2 px-4 text-xs font-medium hover:bg-gray-800 transition-colors duration-200 disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center justify-center space-x-1 whitespace-nowrap"
                   >
                     <ShoppingCart size={12} />
                     <span>ADD TO CART</span>
